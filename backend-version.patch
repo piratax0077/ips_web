@@ -1,0 +1,5 @@
+diff --git a/app/Http/Controllers/api_controlador.php b/app/Http/Controllers/api_controlador.php
+--- a/app/Http/Controllers/api_controlador.php
++++ b/app/Http/Controllers/api_controlador.php
+@@ -6514,0 +6515,1 @@
++                'version' => 'atomic-v2',

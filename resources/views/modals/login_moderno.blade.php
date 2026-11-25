@@ -1,0 +1,26 @@
+<style>
+#modalLogin .modal-dialog{max-width:470px}#modalLogin .modal-content{overflow:hidden;border:0;border-radius:22px;box-shadow:0 28px 80px rgba(5,24,31,.35)}
+#modalLogin .login-cover{position:relative;padding:30px 34px 27px;background:linear-gradient(125deg,#0d2933,#234f5e);color:#fff}#modalLogin .login-cover:after{content:"";position:absolute;right:-42px;bottom:-70px;width:180px;height:180px;border:32px solid rgba(198,106,43,.18);border-radius:50%}
+#modalLogin .login-brand{display:flex;align-items:center;gap:13px;position:relative;z-index:1}#modalLogin .login-logo{width:55px;height:55px;object-fit:contain;border-radius:50%;box-shadow:0 5px 16px rgba(0,0,0,.25)}#modalLogin .login-brand strong{display:block;font-size:1rem}#modalLogin .login-brand span{color:rgba(255,255,255,.66);font-size:.76rem}
+#modalLogin .login-close{position:absolute;z-index:2;top:18px;right:18px;width:36px;height:36px;border:1px solid rgba(255,255,255,.16);border-radius:50%;background:rgba(255,255,255,.08);color:#fff}#modalLogin .login-heading{position:relative;z-index:1;margin-top:25px}#modalLogin .login-heading h2{margin:0 0 7px;color:#fff;font-size:1.65rem;font-weight:800}#modalLogin .login-heading p{max-width:330px;margin:0;color:rgba(255,255,255,.7);font-size:.88rem;line-height:1.5}
+#modalLogin .modal-body{padding:30px 34px 24px}#modalLogin .login-field{margin-bottom:18px}#modalLogin .login-field label{display:block;margin-bottom:7px;color:#30434a;font-size:.78rem;font-weight:800}#modalLogin .login-control{position:relative}#modalLogin .login-control>i{position:absolute;top:50%;left:15px;transform:translateY(-50%);color:#76909a}
+#modalLogin .login-control input{width:100%;height:50px;padding:0 46px;border:1px solid #d9e2e5;border-radius:11px;background:#f8fafb;outline:0;transition:.2s}#modalLogin .login-control input:focus{border-color:#c66a2b;background:#fff;box-shadow:0 0 0 3px rgba(198,106,43,.12)}#modalLogin .password-toggle{position:absolute;top:50%;right:9px;transform:translateY(-50%);width:36px;height:36px;border:0;background:transparent;color:#70858d}
+#modalLogin .login-options{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:3px 0 23px;font-size:.82rem}#modalLogin .login-options a{color:#a8511f;font-weight:700;text-decoration:none}#modalLogin .login-submit{width:100%;height:50px;border:0;border-radius:11px;background:linear-gradient(135deg,#c66a2b,#984817);color:#fff;font-weight:800;box-shadow:0 9px 20px rgba(152,72,23,.22);transition:.2s}#modalLogin .login-submit:hover{transform:translateY(-1px)}#modalLogin .login-security{display:flex;align-items:center;justify-content:center;gap:6px;margin:18px 0 0;color:#829198;font-size:.72rem}
+@media(max-width:575.98px){#modalLogin .modal-dialog{margin:12px}#modalLogin .login-cover,#modalLogin .modal-body{padding-left:22px;padding-right:22px}#modalLogin .login-options{align-items:flex-start;flex-direction:column}}
+</style>
+<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="loginTitle" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+  <header class="login-cover">
+   <button type="button" class="login-close" data-bs-dismiss="modal" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+   <div class="login-brand"><img src="{{ asset('assets/images/logo_ips2025.png') }}" class="login-logo" alt="IPS Autopartes"><div><strong>IPS Autopartes</strong><span>Tu tienda de repuestos</span></div></div>
+   <div class="login-heading"><h2 id="loginTitle">Bienvenido nuevamente</h2><p>Ingresa a tu cuenta para comprar, revisar pedidos y administrar tus datos.</p></div>
+  </header>
+  <div class="modal-body"><form onsubmit="event.preventDefault(); IPSApp.auth.login();">
+   <div class="login-field"><label for="email_">Correo electrónico</label><div class="login-control"><i class="fas fa-envelope"></i><input id="email_" type="email" autocomplete="email" placeholder="nombre@correo.cl" required></div></div>
+   <div class="login-field"><label for="password_">Contraseña</label><div class="login-control"><i class="fas fa-lock"></i><input id="password_" type="password" autocomplete="current-password" placeholder="Ingresa tu contraseña" required><button type="button" class="password-toggle" onclick="toggleLoginPassword(this)" aria-label="Mostrar contraseña"><i class="fas fa-eye"></i></button></div></div>
+   {{-- <div class="login-options"><label class="form-check mb-0"><input class="form-check-input" type="checkbox" id="remember"><span class="form-check-label">Recordarme</span></label>@if (Route::has('password.request'))<a href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a>@endif</div> --}}
+   <button type="submit" class="login-submit"><i class="fas fa-right-to-bracket me-2"></i>Ingresar a mi cuenta</button><p class="login-security"><i class="fas fa-shield-halved"></i>Tus datos se transmiten de forma segura</p>
+  </form></div>
+ </div></div>
+</div>
+<script>function toggleLoginPassword(button){const input=document.getElementById('password_');const icon=button.querySelector('i');const visible=input.type==='text';input.type=visible?'password':'text';icon.classList.toggle('fa-eye',visible);icon.classList.toggle('fa-eye-slash',!visible);button.setAttribute('aria-label',visible?'Mostrar contraseña':'Ocultar contraseña');}</script>

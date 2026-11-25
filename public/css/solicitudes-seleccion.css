@@ -1,0 +1,6 @@
+.repeat-products-title{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.repeat-products-title small{color:#718188;font-weight:700}
+.repeat-quantity{width:72px;text-align:center}
+.repeat-product-check{width:1.1rem;height:1.1rem;border-color:#9aabb2}
+.repeat-product-check:checked,#repeatSelectAll:checked{border-color:var(--requests-orange);background-color:var(--requests-orange)}
+.repeat-table th:first-child,.repeat-table td:first-child{width:36px;text-align:center}
